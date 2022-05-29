@@ -1,0 +1,92 @@
+### Sign up
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "pink@hotmail.com",
+  "password": "root1234",
+  "admin": true
+}
+
+<> 2022-05-28T121316.400.json
+<> 2022-05-28T121257.400.json
+
+### Sign in
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "sanghee@hotmail.com",
+  "password": "root1234"
+}
+
+### Who am I
+GET http://localhost:3000/auth/whoami
+
+### Sign out
+POST http://localhost:3000/auth/signout
+Content-Type: application/json
+
+### Find a user by ID
+GET http://localhost:3000/auth/2
+Content-Type: application/json
+
+<> 2022-05-28T215218.404.json
+<> 2022-05-28T130335.200.json
+<> 2022-05-28T130331.200.json
+
+### Find users by email
+GET http://localhost:3000/auth?email=atsuko@hotmail.com
+Content-Type: application/json
+
+<> 2022-05-28T202121.200.json
+<> 2022-05-28T202116.200.json
+
+### Update a user by ID
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+  "email": "pink@hotmail.com"
+}
+
+<> 2022-05-28T215253.404.json
+<> 2022-05-28T203116.200.json
+<> 2022-05-28T203010.200.json
+<> 2022-05-28T202753.400.json
+<> 2022-05-28T202724.400.json
+<> 2022-05-28T202700.400.json
+<> 2022-05-28T202634.400.json
+
+### Remove a user
+DELETE http://localhost:3000/auth/7
+Content-Type: application/json
+
+<> 2022-05-28T215239.404.json
+<> 2022-05-28T215237.404.json
+<> 2022-05-28T202558.200.json
+
+### Create a report
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "price": 3000,
+  "make": "Honda",
+  "model": "Accord",
+  "year": 2020,
+  "mileage": 5000,
+  "lng": 3,
+  "lat": 5
+}
+
+### Change approval of a report
+PATCH http://localhost:3000/reports/3
+Content-Type: application/json
+
+{
+  "approved": true
+}
+
+### Get a report
+GET http://localhost:3000/reports/3
