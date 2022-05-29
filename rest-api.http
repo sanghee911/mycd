@@ -1,0 +1,52 @@
+### Create a user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "sanghee911@hotmail.com",
+  "password": "root1234",
+  "admin": true
+}
+
+<> 2022-05-28T121316.400.json
+<> 2022-05-28T121257.400.json
+
+### Find a user by ID
+GET http://localhost:3000/auth/23
+Content-Type: application/json
+
+<> 2022-05-28T215218.404.json
+<> 2022-05-28T130335.200.json
+<> 2022-05-28T130331.200.json
+
+### Find users by email
+GET http://localhost:3000/auth?email=sanghee911@hotmail.com
+Content-Type: application/json
+
+<> 2022-05-28T202121.200.json
+<> 2022-05-28T202116.200.json
+
+### Update a user by ID
+PATCH http://localhost:3000/auth/24
+Content-Type: application/json
+
+{
+  "email": "atsuko@hotmail.com"
+}
+
+<> 2022-05-28T215253.404.json
+<> 2022-05-28T203116.200.json
+<> 2022-05-28T203010.200.json
+<> 2022-05-28T202753.400.json
+<> 2022-05-28T202724.400.json
+<> 2022-05-28T202700.400.json
+<> 2022-05-28T202634.400.json
+
+### Remove a user
+DELETE http://localhost:3000/auth/13
+Content-Type: application/json
+
+<> 2022-05-28T215239.404.json
+<> 2022-05-28T215237.404.json
+<> 2022-05-28T202558.200.json
+
