@@ -32,4 +32,18 @@ export class ReportsService {
     }
     return report;
   }
+
+  find() {
+    return this.repo.find({ relations: ['user'] });
+  }
+
+  async remove(id: string) {
+    const report = await this.repo.findOne(parseInt(id), {
+      relations: ['user'],
+    });
+    if (!report) {
+      throw new NotFoundException('report not found');
+    }
+    return this.repo.remove(report);
+  }
 }

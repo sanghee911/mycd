@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller, Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards
+} from '@nestjs/common';
 import { CreateReportDto } from './dtos/create-report.dto';
 import { ReportsService } from './reports.service';
 import { AuthGuard } from '../guards/auth.guard';
@@ -9,11 +17,12 @@ import { Serialize } from '../interceptors/serialize.interceptor';
 import { ApproveReportDto } from './dtos/approve-report.dto';
 
 @Controller('reports')
+@Serialize(ReportDto)
 export class ReportsController {
   constructor(private reportsService: ReportsService) {}
   @Post()
   @UseGuards(AuthGuard)
-  @Serialize(ReportDto)
+  // @Serialize(ReportDto)
   createReport(@Body() body: CreateReportDto, @CurrentUser() user: User) {
     return this.reportsService.create(body, user);
   }
@@ -24,8 +33,19 @@ export class ReportsController {
   }
 
   @Get('/:id')
-  @Serialize(ReportDto)
+  // @Serialize(ReportDto)
   getReport(@Param('id') id: string) {
     return this.reportsService.findOne(id);
+  }
+
+  @Get()
+  // @Serialize(ReportDto)
+  getReports() {
+    return this.reportsService.find();
+  }
+
+  @Delete('/:id')
+  deleteReport(@Param('id') id: string) {
+    return this.reportsService.remove(id);
   }
 }
